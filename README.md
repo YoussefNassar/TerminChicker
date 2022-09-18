@@ -4,4 +4,5 @@ In case a free appointment was found the programm will trigger the windows notif
 This was only tested on windows OS.
 
 To run the program run download the jar file "TerminCheker.jar " and run ``` java -jar TerminChecker.jar ``` in the terminal.
+
 To order a custom made version for you contact me by email.
