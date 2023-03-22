@@ -17,7 +17,7 @@ class TerminChecker {
                 driver.findElement(By.id("xi-sel-400")).click()
                 Thread.sleep(6000)
                 // Syrien
-                driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[4]/div[2]/form/div[2]/div/div[2]/div[8]/div[2]/div[2]/div[1]/fieldset/div[1]/select/option[160]")).click()
+                driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[4]/div[2]/form/div[2]/div/div[2]/div[8]/div[2]/div[2]/div[1]/fieldset/div[1]/select/option[161]")).click()
                 //Anzahl der Personen drop down
                 driver.findElement(By.id("xi-sel-422")).click()
                 // eine Person
@@ -25,6 +25,7 @@ class TerminChecker {
                 Thread.sleep(8000)
                 //Leben sie in Berlin mit einem Familienangehörigen
                 driver.findElement(By.id("xi-sel-427")).click()
+                Thread.sleep(3000)
                 //nein
                 driver.findElement(By.id("xi-sel-427_2")).click()
                 Thread.sleep(8000)
@@ -33,9 +34,9 @@ class TerminChecker {
                 Thread.sleep(3000)
                 //Erwerbstätigkeit
                 driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[4]/div[2]/form/div[2]/div/div[2]/div[8]/div[2]/div[2]/div[1]/fieldset/div[8]/div[1]/div[1]/div[1]/div[5]/div/div[3]/label")).click()
-                Thread.sleep(3000)
+                Thread.sleep(4000)
                 //Aufenthaltserlaubnis für Fachkräfte zur Arbeitsplatzsuche - Erteilung (§ 20)
-                driver.findElement(By.id("SERVICEWAHL_DE473-0-1-1-324661")).click()
+                driver.findElement(By.id("SERVICEWAHL_DE475-0-1-1-324661")).click()
                 Thread.sleep(7000)
                 driver.findElement(By.id("applicationForm:managedForm:proceed")).click()
                 Thread.sleep(8000)
