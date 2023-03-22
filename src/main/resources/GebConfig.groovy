@@ -15,11 +15,13 @@ driver = {
     ChromeOptions options = new ChromeOptions()
     options.setExperimentalOption("prefs", prefs)
     options.addArguments("disable-infobars")
-
+    options.addArguments("--remote-allow-origins=*")
+    options.addArguments("--disable-blink-features=AutomationControlled")
+    options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
+    options.setExperimentalOption("useAutomationExtension", false);
     ChromeDriverManager.instance.version("2.41").arch64().setup()
     ((new ChromeDriver(options)) as RemoteWebDriver)
 }
-
 
 baseNavigatorWaiting = true
 
