@@ -1,9 +1,8 @@
+import io.github.bonigarcia.wdm.config.DriverManagerType
+import io.github.bonigarcia.wdm.managers.ChromeDriverManager
 import org.openqa.selenium.chrome.ChromeDriver
 import org.openqa.selenium.chrome.ChromeOptions
-import io.github.bonigarcia.wdm.ChromeDriverManager
 import org.openqa.selenium.remote.RemoteWebDriver
-
-quitCachedDriverOnShutdown = true
 
 driver = {
     Map<String, Object> prefs = new HashMap<String, Object>()
@@ -19,7 +18,8 @@ driver = {
     options.addArguments("--disable-blink-features=AutomationControlled")
     options.setExperimentalOption("excludeSwitches", Collections.singletonList("enable-automation"));
     options.setExperimentalOption("useAutomationExtension", false);
-    ChromeDriverManager.instance.version("2.41").arch64().setup()
+    ChromeDriverManager.getInstance(DriverManagerType.CHROME).browserVersion("2.41").arch64().setup();
+//            instance.version("2.41").arch64().setup()
     ((new ChromeDriver(options)) as RemoteWebDriver)
 }
 

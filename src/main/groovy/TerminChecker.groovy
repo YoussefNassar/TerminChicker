@@ -8,11 +8,12 @@ class TerminChecker {
         try {
             Browser.drive {
                 browser.go("https://otv.verwalt-berlin.de/")
+                Thread.sleep(8000)
                 driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[4]/form/div/div/div/div/div/div/div/div/div/div[1]/div[1]/div[2]/a")).click()
                 Thread.sleep(8000)
                 driver.findElement(By.id("xi-cb-1")).click()
                 driver.findElement(By.id("applicationForm:managedForm:proceed")).click()
-                Thread.sleep(10000)
+                Thread.sleep(15000)
                 // stastsangehörigkeit dropdown
                 driver.findElement(By.id("xi-sel-400")).click()
                 Thread.sleep(6000)
@@ -25,28 +26,28 @@ class TerminChecker {
                 Thread.sleep(8000)
                 //Leben sie in Berlin mit einem Familienangehörigen
                 driver.findElement(By.id("xi-sel-427")).click()
-                Thread.sleep(3000)
+                Thread.sleep(5000)
                 //nein
                 driver.findElement(By.id("xi-sel-427_2")).click()
                 Thread.sleep(8000)
                 //Aufentahltstitel beantragen
                 driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[4]/div[2]/form/div[2]/div/div[2]/div[8]/div[2]/div[2]/div[1]/fieldset/div[8]/div[1]/div[1]/div[1]/div[1]/label")).click()
-                Thread.sleep(3000)
+                Thread.sleep(5000)
                 //Erwerbstätigkeit
                 driver.findElement(By.xpath("/html/body/div[2]/div[2]/div[4]/div[2]/form/div[2]/div/div[2]/div[8]/div[2]/div[2]/div[1]/fieldset/div[8]/div[1]/div[1]/div[1]/div[5]/div/div[3]/label")).click()
-                Thread.sleep(5000)
+                Thread.sleep(6000)
                 //Aufenthaltserlaubnis für Fachkräfte zur Arbeitsplatzsuche - Erteilung (§ 20)
                 $("label", text: contains("für Fachkräfte zur Arbeitsplatzsuche - ")).click()
 //                driver.findElement(By.id("SERVICEWAHL_DE475-0-1-1-324661")).click()
-                Thread.sleep(7000)
+                Thread.sleep(9000)
                 driver.findElement(By.id("applicationForm:managedForm:proceed")).click()
-                Thread.sleep(8000)
+                Thread.sleep(22000)
 
                 boolean available = false
                 while (!available) {
                     if (driver.findElement(By.id("messagesBox")).getText().
                             contains("Für die gewählte Dienstleistung sind aktuell keine Termine frei! Bitte")) {
-                        Thread.sleep(8000)
+                        Thread.sleep(30000)
                         driver.findElement(By.id("applicationForm:managedForm:proceed")).click()
                     } else {
                         available = true
@@ -58,12 +59,13 @@ class TerminChecker {
                         }
                     }
                 }
+                System.in.read()
             }
         } catch (Exception exception) {
             Browser.drive {
                 CachingDriverFactory.clearCacheAndQuitDriver()
             }
-            println("Exception was Thrown, starting over")
+            println("Exception was Thrown, starting over " + exception.getStackTrace()[0].getLineNumber())
             //todo: remove Recursion
             checkTermin()
         }
